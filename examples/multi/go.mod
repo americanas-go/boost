@@ -1,4 +1,4 @@
-module github.com/americanas-go/gopot/examples/multi
+module github.com/americanas-go/gobox/examples/multi
 
 go 1.17
 

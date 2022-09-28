@@ -8,26 +8,26 @@ spec:
         name: xpto
         description: Pellentesque ac dictum ante. Etiam pretium finibus felis eget ultricies
         options:
-          go_package: github.com/americanas-go/gopot/examples/multi
+          go_package: github.com/americanas-go/gobox/examples/multi
           java_package: com.github.americanas-go/examples/multi
         methods:
           - name: lorem
             type: STREAM
-            handler: github.com/americanas-go/gopot/examples/multi.ExampleHandler
+            handler: github.com/americanas-go/gobox/examples/multi.ExampleHandler
             message:
-              input: github.com/americanas-go/gopot/examples/multi.Request
-              output: github.com/americanas-go/gopot/examples/multi.Request
+              input: github.com/americanas-go/gobox/examples/multi.Request
+              output: github.com/americanas-go/gobox/examples/multi.Request
           - name: dictum
             type: UNARY
-            handler: github.com/americanas-go/gopot/examples/multi.ExampleHandler
+            handler: github.com/americanas-go/gobox/examples/multi.ExampleHandler
             message:
-              input: github.com/americanas-go/gopot/examples/multi.Request
-              output: github.com/americanas-go/gopot/examples/multi.Request
+              input: github.com/americanas-go/gobox/examples/multi.Request
+              output: github.com/americanas-go/gobox/examples/multi.Request
     - type: FUNCTION
       spec:
         name: xpto
         description: Pellentesque ac dictum ante. Etiam pretium finibus felis eget ultricies
-        handler: github.com/americanas-go/gopot/examples/multi.ExampleHandler
+        handler: github.com/americanas-go/gobox/examples/multi.ExampleHandler
         consumes:
           - application/json
         produces:
@@ -40,7 +40,7 @@ spec:
           - path: /example
             method: POST
             description: Sed eu lectus dignissim, vehicula urna eu, condimentum mauris.
-            handler: github.com/americanas-go/gopot/examples/multi.ExampleHandler
+            handler: github.com/americanas-go/gobox/examples/multi.ExampleHandler
             consumes:
               - application/json
             produces:
@@ -64,7 +64,7 @@ spec:
               - name: example_body
                 description: Vestibulum ante ipsum primis in faucibus.
                 source: BODY
-                schema: github.com/americanas-go/gopot/examples/multi.Request
+                schema: github.com/americanas-go/gobox/examples/multi.Request
                 required: true
                 validations: {}
             responses:
