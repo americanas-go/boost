@@ -1,9 +1,11 @@
 package simple
 
 // ExampleStruct Lorem ipsum dolor sit amet, consectetur adipiscing elit
+// @B Package github.com/americanas-go/boost
+// @B RelativePackage examples/simple
 // @B App xpto
-// @B Type FUNC
 // @B HandlerType HTTP
+// @B Type Interface
 type ExampleStruct struct {
 }
 
@@ -11,17 +13,24 @@ func (t *ExampleStruct) FooStructMethod() {
 }
 
 // FooMethod Lorem ipsum dolor sit amet, consectetur adipiscing elit
+// @B Package github.com/americanas-go/boost
+// @B RelativePackage examples/simple
 // @B App xpto
-// @B Type FUNC
 // @B HandlerType HTTP
-// @B Paths /,/foo
+// @B Type Function
+// @B Path /foo
+// @B Path /
 // @B Method POST
-// @B Consumes application/json,application/yaml
+// @B Consume application/json
+// @B Consume application/yaml
 // @B Produces application/json
-// @B QueryParams name=foo,type=bool&name=bar,type=string
-// @B PathParams name=foo,type=string
-// @B HeaderParams name=foo,type=string&bar
-// @B Body github.com/americanas-go/boost/examples/multi.Request
-// @B Response 201
+// @B Param query foo bool true tiam sed efficitur purus
+// @B Param query bar string true tiam sed efficitur purus
+// @B Param path foo string tiam sed efficitur purus
+// @B Param path bar string tiam sed efficitur purus
+// @B Param header foo string true tiam sed efficitur purus
+// @B Param header bar string true tiam sed efficitur purus
+// @B Body github.com/americanas-go/boost/examples/simple.Request
+// @B Response 201 github.com/americanas-go/boost/examples/simple.Response tiam sed efficitur purus, at lacinia magna
 func FooMethod() {
 }
