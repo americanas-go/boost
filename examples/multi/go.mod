@@ -1,4 +1,4 @@
-module github.com/americanas-go/gobox/examples/multi
+module github.com/americanas-go/boost/examples/multi
 
 go 1.17
 
