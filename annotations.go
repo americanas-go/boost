@@ -53,7 +53,9 @@ func (m *Annotations) ToSpec() (spec Spec, err error) {
 		case AppTypeHTTP.String():
 
 			if appsSpec.Spec == nil {
-				appsSpec.Spec = new(HTTPSpec)
+				appsSpec.Spec = &HTTPSpec{
+					Name: app.SimpleValue(),
+				}
 			}
 
 			ats, err = m.extractParamsWithTypes(as,
@@ -72,7 +74,6 @@ func (m *Annotations) ToSpec() (spec Spec, err error) {
 			}
 
 		}
-
 		appsSpec.Spec.SetFromAnnotations(hf, ats)
 	}
 

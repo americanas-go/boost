@@ -7,6 +7,7 @@ require (
 	github.com/americanas-go/log v1.8.6
 	github.com/americanas-go/utils v1.1.0
 	github.com/ettle/strcase v0.1.1
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (

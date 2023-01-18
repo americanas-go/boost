@@ -57,12 +57,6 @@ spec:
                 source: HEADER
                 type: STRING
                 required: false
-              - name: example_body
-                description: Vestibulum ante ipsum primis in faucibus.
-                source: BODY
-                schema: github.com/americanas-go/boost/examples/multi.Request
-                required: true
-                validations: {}
             responses:
               - 201:
                   description: Etiam sed efficitur purus, at lacinia magna.

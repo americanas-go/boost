@@ -20,7 +20,7 @@ func ParseDir(path string) (Spec, error) {
 		return Spec{}, err
 	}
 
-	annon := filterAn(d)
+	annon := filterAnnotations(d)
 	spec, err := annon.ToSpec()
 	if err != nil {
 		return Spec{}, err
@@ -41,7 +41,7 @@ func parseDir(path string) (map[string]*ast.Package, error) {
 	return d, nil
 }
 
-func filterAn(d map[string]*ast.Package) (m Annotations) {
+func filterAnnotations(d map[string]*ast.Package) (m Annotations) {
 	m = make(map[string][]string)
 	for _, p := range d {
 		log.Infof("parsing package %s", p.Name)

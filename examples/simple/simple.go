@@ -1,5 +1,10 @@
 package simple
 
+import (
+	"context"
+	"net/http"
+)
+
 // ExampleStruct Lorem ipsum dolor sit amet, consectetur adipiscing elit
 // @B Package github.com/americanas-go/boost
 // @B RelativePackage examples/simple
@@ -9,7 +14,10 @@ package simple
 type ExampleStruct struct {
 }
 
-func (t *ExampleStruct) FooStructMethod() {
+func (t *ExampleStruct) FooStructMethod(ctx context.Context, r *http.Request) (interface{}, error) {
+	return Response{
+		Message: "Hello world",
+	}, nil
 }
 
 // FooMethod Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -32,5 +40,12 @@ func (t *ExampleStruct) FooStructMethod() {
 // @B Param header bar string true tiam sed efficitur purus
 // @B Body github.com/americanas-go/boost/examples/simple.Request
 // @B Response 201 github.com/americanas-go/boost/examples/simple.Response tiam sed efficitur purus, at lacinia magna
-func FooMethod() {
+func FooMethod(ctx context.Context, r *http.Request) (interface{}, error) {
+	return Response{
+		Message: "Hello world",
+	}, nil
+}
+
+type Response struct {
+	Message string
 }
