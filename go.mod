@@ -2,7 +2,12 @@ module github.com/americanas-go/boost
 
 go 1.19
 
-require github.com/americanas-go/log v1.8.6
+require (
+	github.com/americanas-go/errors v1.1.0
+	github.com/americanas-go/log v1.8.6
+	github.com/americanas-go/utils v1.1.0
+	github.com/ettle/strcase v0.1.1
+)
 
 require (
 	github.com/mattn/go-colorable v0.1.12 // indirect

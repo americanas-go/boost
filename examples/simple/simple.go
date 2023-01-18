@@ -23,7 +23,7 @@ func (t *ExampleStruct) FooStructMethod() {
 // @B Method POST
 // @B Consume application/json
 // @B Consume application/yaml
-// @B Produces application/json
+// @B Produce application/json
 // @B Param query foo bool true tiam sed efficitur purus
 // @B Param query bar string true tiam sed efficitur purus
 // @B Param path foo string tiam sed efficitur purus

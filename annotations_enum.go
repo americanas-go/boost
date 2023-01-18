@@ -12,55 +12,91 @@ import (
 )
 
 const (
-	// AppTypeHTTP is a AppType of type HTTP.
-	AppTypeHTTP AppType = iota
-	// AppTypeFUNCTION is a AppType of type FUNCTION.
-	AppTypeFUNCTION
-	// AppTypeGRPC is a AppType of type GRPC.
-	AppTypeGRPC
+	// AnnotationTypePACKAGE is a AnnotationType of type PACKAGE.
+	AnnotationTypePACKAGE AnnotationType = iota
+	// AnnotationTypeRELATIVEPACKAGE is a AnnotationType of type RELATIVE_PACKAGE.
+	AnnotationTypeRELATIVEPACKAGE
+	// AnnotationTypeAPP is a AnnotationType of type APP.
+	AnnotationTypeAPP
+	// AnnotationTypeHANDLERTYPE is a AnnotationType of type HANDLER_TYPE.
+	AnnotationTypeHANDLERTYPE
+	// AnnotationTypeTYPE is a AnnotationType of type TYPE.
+	AnnotationTypeTYPE
+	// AnnotationTypePATH is a AnnotationType of type PATH.
+	AnnotationTypePATH
+	// AnnotationTypeMETHOD is a AnnotationType of type METHOD.
+	AnnotationTypeMETHOD
+	// AnnotationTypeCONSUME is a AnnotationType of type CONSUME.
+	AnnotationTypeCONSUME
+	// AnnotationTypePRODUCE is a AnnotationType of type PRODUCE.
+	AnnotationTypePRODUCE
+	// AnnotationTypePARAM is a AnnotationType of type PARAM.
+	AnnotationTypePARAM
+	// AnnotationTypeBODY is a AnnotationType of type BODY.
+	AnnotationTypeBODY
+	// AnnotationTypeRESPONSE is a AnnotationType of type RESPONSE.
+	AnnotationTypeRESPONSE
 )
 
-var ErrInvalidAppType = errors.New("not a valid AppType")
+var ErrInvalidAnnotationType = errors.New("not a valid AnnotationType")
 
-const _AppTypeName = "HTTPFUNCTIONGRPC"
+const _AnnotationTypeName = "PACKAGERELATIVE_PACKAGEAPPHANDLER_TYPETYPEPATHMETHODCONSUMEPRODUCEPARAMBODYRESPONSE"
 
-var _AppTypeMap = map[AppType]string{
-	AppTypeHTTP:     _AppTypeName[0:4],
-	AppTypeFUNCTION: _AppTypeName[4:12],
-	AppTypeGRPC:     _AppTypeName[12:16],
+var _AnnotationTypeMap = map[AnnotationType]string{
+	AnnotationTypePACKAGE:         _AnnotationTypeName[0:7],
+	AnnotationTypeRELATIVEPACKAGE: _AnnotationTypeName[7:23],
+	AnnotationTypeAPP:             _AnnotationTypeName[23:26],
+	AnnotationTypeHANDLERTYPE:     _AnnotationTypeName[26:38],
+	AnnotationTypeTYPE:            _AnnotationTypeName[38:42],
+	AnnotationTypePATH:            _AnnotationTypeName[42:46],
+	AnnotationTypeMETHOD:          _AnnotationTypeName[46:52],
+	AnnotationTypeCONSUME:         _AnnotationTypeName[52:59],
+	AnnotationTypePRODUCE:         _AnnotationTypeName[59:66],
+	AnnotationTypePARAM:           _AnnotationTypeName[66:71],
+	AnnotationTypeBODY:            _AnnotationTypeName[71:75],
+	AnnotationTypeRESPONSE:        _AnnotationTypeName[75:83],
 }
 
 // String implements the Stringer interface.
-func (x AppType) String() string {
-	if str, ok := _AppTypeMap[x]; ok {
+func (x AnnotationType) String() string {
+	if str, ok := _AnnotationTypeMap[x]; ok {
 		return str
 	}
-	return fmt.Sprintf("AppType(%d)", x)
+	return fmt.Sprintf("AnnotationType(%d)", x)
 }
 
-var _AppTypeValue = map[string]AppType{
-	_AppTypeName[0:4]:   AppTypeHTTP,
-	_AppTypeName[4:12]:  AppTypeFUNCTION,
-	_AppTypeName[12:16]: AppTypeGRPC,
+var _AnnotationTypeValue = map[string]AnnotationType{
+	_AnnotationTypeName[0:7]:   AnnotationTypePACKAGE,
+	_AnnotationTypeName[7:23]:  AnnotationTypeRELATIVEPACKAGE,
+	_AnnotationTypeName[23:26]: AnnotationTypeAPP,
+	_AnnotationTypeName[26:38]: AnnotationTypeHANDLERTYPE,
+	_AnnotationTypeName[38:42]: AnnotationTypeTYPE,
+	_AnnotationTypeName[42:46]: AnnotationTypePATH,
+	_AnnotationTypeName[46:52]: AnnotationTypeMETHOD,
+	_AnnotationTypeName[52:59]: AnnotationTypeCONSUME,
+	_AnnotationTypeName[59:66]: AnnotationTypePRODUCE,
+	_AnnotationTypeName[66:71]: AnnotationTypePARAM,
+	_AnnotationTypeName[71:75]: AnnotationTypeBODY,
+	_AnnotationTypeName[75:83]: AnnotationTypeRESPONSE,
 }
 
-// ParseAppType attempts to convert a string to a AppType.
-func ParseAppType(name string) (AppType, error) {
-	if x, ok := _AppTypeValue[name]; ok {
+// ParseAnnotationType attempts to convert a string to a AnnotationType.
+func ParseAnnotationType(name string) (AnnotationType, error) {
+	if x, ok := _AnnotationTypeValue[name]; ok {
 		return x, nil
 	}
-	return AppType(0), fmt.Errorf("%s is %w", name, ErrInvalidAppType)
+	return AnnotationType(0), fmt.Errorf("%s is %w", name, ErrInvalidAnnotationType)
 }
 
 // MarshalText implements the text marshaller method.
-func (x AppType) MarshalText() ([]byte, error) {
+func (x AnnotationType) MarshalText() ([]byte, error) {
 	return []byte(x.String()), nil
 }
 
 // UnmarshalText implements the text unmarshaller method.
-func (x *AppType) UnmarshalText(text []byte) error {
+func (x *AnnotationType) UnmarshalText(text []byte) error {
 	name := string(text)
-	tmp, err := ParseAppType(name)
+	tmp, err := ParseAnnotationType(name)
 	if err != nil {
 		return err
 	}
