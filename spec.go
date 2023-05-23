@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+
+	"github.com/americanas-go/log"
 )
 
 // ENUM(HTTP,FUNCTION,GRPC)
@@ -69,6 +71,12 @@ func (s *HTTPSpec) SetFromAnnotations(handler string, an []Annotation) {
 			es.Package = a.SimpleValue()
 		case AnnotationTypeRELATIVEPACKAGE:
 			es.RelativePackage = a.SimpleValue()
+		case AnnotationTypeTYPE:
+			v, err := ParseType(strings.ToUpper(a.SimpleValue()))
+			if err != nil {
+				log.Warnf("cannot parse http handler type.", err.Error())
+			}
+			es.Type = v
 		case AnnotationTypePATH:
 			es.Paths = append(es.Paths, strings.ToLower(a.SimpleValue()))
 		case AnnotationTypeMETHOD:
