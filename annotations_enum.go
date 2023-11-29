@@ -88,12 +88,12 @@ func ParseAnnotationType(name string) (AnnotationType, error) {
 	return AnnotationType(0), fmt.Errorf("%s is %w", name, ErrInvalidAnnotationType)
 }
 
-// MarshalText implements the text marshaller method.
+// MarshalText implements the text.v0 marshaller method.
 func (x AnnotationType) MarshalText() ([]byte, error) {
 	return []byte(x.String()), nil
 }
 
-// UnmarshalText implements the text unmarshaller method.
+// UnmarshalText implements the text.v0 unmarshaller method.
 func (x *AnnotationType) UnmarshalText(text []byte) error {
 	name := string(text)
 	tmp, err := ParseAnnotationType(name)

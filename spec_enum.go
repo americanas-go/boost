@@ -52,12 +52,12 @@ func ParseAppType(name string) (AppType, error) {
 	return AppType(0), fmt.Errorf("%s is %w", name, ErrInvalidAppType)
 }
 
-// MarshalText implements the text marshaller method.
+// MarshalText implements the text.v0 marshaller method.
 func (x AppType) MarshalText() ([]byte, error) {
 	return []byte(x.String()), nil
 }
 
-// UnmarshalText implements the text unmarshaller method.
+// UnmarshalText implements the text.v0 unmarshaller method.
 func (x *AppType) UnmarshalText(text []byte) error {
 	name := string(text)
 	tmp, err := ParseAppType(name)
@@ -105,12 +105,12 @@ func ParseType(name string) (Type, error) {
 	return Type(0), fmt.Errorf("%s is %w", name, ErrInvalidType)
 }
 
-// MarshalText implements the text marshaller method.
+// MarshalText implements the text.v0 marshaller method.
 func (x Type) MarshalText() ([]byte, error) {
 	return []byte(x.String()), nil
 }
 
-// UnmarshalText implements the text unmarshaller method.
+// UnmarshalText implements the text.v0 unmarshaller method.
 func (x *Type) UnmarshalText(text []byte) error {
 	name := string(text)
 	tmp, err := ParseType(name)
