@@ -7,7 +7,7 @@ require (
 	github.com/americanas-go/ignite v1.13.3
 	github.com/americanas-go/log v1.8.9
 	github.com/americanas-go/utils v1.1.0
-	github.com/cloudevents/sdk-go/v2 v2.14.0
+	github.com/cloudevents/sdk-go/v2 v2.15.2
 	github.com/ettle/strcase v0.2.0
 	gopkg.in/yaml.v3 v3.0.1
 )
